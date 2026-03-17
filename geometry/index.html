@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Visualizer — Interactive 2D & 3D Shapes</title>
+    <meta name="description"
+        content="Explore geometry with interactive 3D models and beautifully rendered formulas for 2D shapes, 3D solids, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="icon" type="image/svg+xml" href="../icon/brain-14-svgrepo-com.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Ambient floating particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <img src="../icon/geometry-cube-svgrepo-com.svg" alt="Geometry" width="32" height="32">
+                <span>Geometry Visualizer</span>
+            </a>
+            <nav class="nav">
+                <a href="#section-2d" class="nav-link active" data-section="section-2d" data-i18n="nav2d">2D Shapes</a>
+                <a href="#section-3d" class="nav-link" data-section="section-3d" data-i18n="nav3d">3D Shapes</a>
+                <a href="#section-misc" class="nav-link" data-section="section-misc" data-i18n="navMisc">Formulas</a>
+                <div class="lang-toggle" id="lang-toggle" title="Switch language">
+                    <button class="lang-flag active" data-lang="en" aria-label="English">
+                        <img src="../icon/language.svg" alt="" width="24" height="24" aria-hidden="true">
+                    </button>
+                    <button class="lang-flag" data-lang="id" aria-label="Indonesian">
+                        <img src="../icon/flag-for-indonesia%20(1).svg" alt="" width="24" height="24"
+                            aria-hidden="true">
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1 data-i18n="heroTitle">Explore <span class="gradient-text">Geometry</span></h1>
+        <p class="hero-sub" data-i18n="heroSub">Interactive visualizations and formulas for every shape you need to
+            know.</p>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- ===================== 2D SHAPES ===================== -->
+    <section id="section-2d" class="section reveal">
+        <div class="section-header">
+            <h2 data-i18n="section2dTitle">Plane Figures</h2>
+            <p data-i18n="section2dSub">Perimeters, areas, and properties of common 2D shapes</p>
+        </div>
+
+        <div class="shape-selector" id="selector-2d">
+            <button class="shape-btn active" data-shape="rectangle">Rectangle</button>
+            <button class="shape-btn" data-shape="square">Square</button>
+            <button class="shape-btn" data-shape="triangle">Triangle</button>
+            <button class="shape-btn" data-shape="right-triangle">Right Triangle</button>
+            <button class="shape-btn" data-shape="trapezoid">Trapezoid</button>
+            <button class="shape-btn" data-shape="parallelogram">Parallelogram</button>
+            <button class="shape-btn" data-shape="circle">Circle</button>
+        </div>
+
+        <div class="visualizer-layout">
+            <div class="shape-canvas-container glass-card" id="canvas-2d">
+                <!-- SVG injected by JS -->
+            </div>
+            <div class="formula-panel" id="formulas-2d">
+                <!-- Formula cards injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== 3D SHAPES ===================== -->
+    <section id="section-3d" class="section reveal">
+        <div class="section-header">
+            <h2 data-i18n="section3dTitle">Solid Figures</h2>
+            <p data-i18n="section3dSub">Volumes and surface areas of common 3D shapes</p>
+        </div>
+
+        <div class="shape-selector" id="selector-3d">
+            <button class="shape-btn active" data-shape="cuboid">Cuboid</button>
+            <button class="shape-btn" data-shape="cube">Cube</button>
+            <button class="shape-btn" data-shape="cylinder">Cylinder</button>
+            <button class="shape-btn" data-shape="cone">Cone</button>
+            <button class="shape-btn" data-shape="square-pyramid">Sq. Pyramid</button>
+            <button class="shape-btn" data-shape="sphere">Sphere</button>
+            <button class="shape-btn" data-shape="solid-hemisphere">Hemisphere</button>
+            <button class="shape-btn" data-shape="hollow-hemisphere">Hollow Hemi.</button>
+        </div>
+
+        <div class="visualizer-layout">
+            <div class="shape-canvas-container glass-card" id="canvas-3d">
+                <canvas id="three-canvas"></canvas>
+            </div>
+            <div class="formula-panel" id="formulas-3d">
+                <!-- Formula cards injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== MISCELLANEOUS ===================== -->
+    <section id="section-misc" class="section reveal">
+        <div class="section-header">
+            <h2 data-i18n="sectionMiscTitle">Miscellaneous Formulas</h2>
+            <p data-i18n="sectionMiscSub">Distance, percentage, temperature, and interest</p>
+        </div>
+
+        <div class="misc-grid" id="misc-formulas">
+            <!-- Cards injected by JS -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Geometry Visualizer &bull; Built with Three.js &amp; KaTeX</p>
+    </footer>
+
+    <!-- Scripts: KaTeX + Three.js (UMD global) + OrbitControls (UMD global) -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://unpkg.com/three@0.139.2/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.139.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="../guard.js?v=20260311"></script>
+    <script src="../module-state.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

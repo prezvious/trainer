@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Daily Read — Short English articles with pop-up dictionary and comprehension quizzes.">
+    <title>Daily Read — Brain Gym</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="../../icon/brain-14-svgrepo-com.svg">
+</head>
+
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="top-bar">
+            <a href="../index.html" class="back-link">← English</a>
+            <h1 class="page-title">Daily Read</h1>
+        </header>
+
+        <!-- Article Meta -->
+        <div class="article-meta" id="article-meta">
+            <span class="topic-badge" id="topic-badge">Science</span>
+            <span class="meta-date" id="meta-date"></span>
+            <span class="meta-words" id="meta-words"></span>
+        </div>
+
+        <!-- Article Title -->
+        <h2 class="article-title" id="article-title">Loading…</h2>
+
+        <!-- Article Body — words wrapped by JS -->
+        <article class="article-body" id="article-body">
+            <p class="loading-text">Loading today's article…</p>
+        </article>
+
+        <!-- Pop-up Dictionary Tooltip -->
+        <div class="dict-popup hidden" id="dict-popup">
+            <div class="popup-header">
+                <span class="popup-word" id="popup-word"></span>
+                <button class="popup-close" id="popup-close">×</button>
+            </div>
+            <div class="popup-loading hidden" id="popup-loading">Looking up…</div>
+            <div class="popup-content" id="popup-content"></div>
+            <a class="popup-full-link" id="popup-full-link" href="../dictionary/index.html" target="_blank">Open full
+                dictionary
+                →</a>
+        </div>
+
+        <!-- Comprehension Quiz -->
+        <section class="quiz-section hidden" id="quiz-section">
+            <h3 class="quiz-heading"><img src="../../icon/spell-check-svgrepo-com.svg" alt="" width="20" height="20"
+                    class="inline-icon">Reading Comprehension</h3>
+            <div class="quiz-list" id="quiz-list"></div>
+            <div class="quiz-result hidden" id="quiz-result">
+                <span class="quiz-score" id="quiz-score"></span>
+            </div>
+            <button class="quiz-submit hidden" id="quiz-submit">Check Answers</button>
+        </section>
+    </div>
+
+    <script src="../../guard.js?v=20260311"></script>
+    <script src="../../gamification.js"></script>
+    <script src="../../module-state.js"></script>
+    <script src="articles.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Mathematics Formula Notes — Searchable LaTeX reference with categories, favorites, and beautiful rendering.">
+    <title>Formula Notes — Brain Gym</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="icon" type="image/svg+xml" href="../icon/brain-14-svgrepo-com.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- ── Grid View (default state) ── -->
+    <div class="view" id="grid-view">
+        <header class="top-bar">
+            <a href="../index.html" class="back-link">← Brain Gym</a>
+            <h1 class="page-title">Formula Notes</h1>
+            <div class="search-box" id="grid-search-box">
+                <img class="search-icon" src="../icon/formula-svgrepo-com.svg" alt="" width="18" height="18"
+                    aria-hidden="true">
+                <input type="text" id="grid-search" placeholder="Search categories or formulas…" autocomplete="off">
+            </div>
+        </header>
+
+        <div class="grid-container" id="category-grid">
+            <!-- Category cards injected by JS -->
+        </div>
+    </div>
+
+    <!-- ── Expanded View (two-panel) ── -->
+    <div class="view hidden" id="expanded-view">
+        <div class="two-panel">
+            <!-- Left sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <button class="back-btn" id="back-to-grid">
+                        <img class="back-icon" src="../icon/history-svg.svg" alt="" width="18" height="18"
+                            aria-hidden="true">
+                        Back to Grid
+                    </button>
+                </div>
+                <div class="sidebar-search">
+                    <input type="text" id="sidebar-search" placeholder="Filter notes…" autocomplete="off">
+                </div>
+                <nav class="sidebar-list" id="sidebar-list">
+                    <!-- Category links injected by JS -->
+                </nav>
+            </aside>
+
+            <!-- Right content -->
+            <main class="content-panel" id="content-panel">
+                <div class="content-header">
+                    <div class="content-icon" id="content-icon"></div>
+                    <div>
+                        <h2 class="content-title" id="content-title">Category</h2>
+                        <p class="content-desc" id="content-desc">Description</p>
+                    </div>
+                </div>
+                <div class="formula-list" id="formula-list">
+                    <!-- Formula cards injected by JS -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script src="../guard.js?v=20260311"></script>
+    <script src="../gamification.js"></script>
+    <script src="../review-queue.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

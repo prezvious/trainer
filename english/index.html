@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="English Module — Improve your daily English literacy with dictionary, grammar flashcards, and daily reading.">
+    <title>English — Brain Gym</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../icon/brain-14-svgrepo-com.svg">
+    <style>
+        :root {
+            --bg: #FFF0F3;
+            --bg-card: #ffffff;
+            --border: #F5D0D8;
+            --border-hover: #F5A0B8;
+            --text-primary: #3B2E2A;
+            --text-secondary: #6B5B54;
+            --text-muted: #A39590;
+            --accent-1: #F5A0B8;
+            --accent-2: #E8D5F5;
+            --accent-3: #A8D8EA;
+            --accent-dict: #FFB5A7;
+            --accent-grammar: #C5B4E3;
+            --accent-read: #A8D8EA;
+            --radius: 18px;
+            --radius-sm: 12px;
+            --radius-xs: 8px;
+            --shadow: 0 2px 12px rgba(255, 181, 167, 0.1);
+            --shadow-hover: 0 12px 40px rgba(245, 160, 184, 0.15);
+            --font-main: 'Manrope', 'Segoe UI', sans-serif;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .app {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        /* ── Header ── */
+        .top-bar {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: calc(var(--radius) + 2px);
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.95), rgba(236, 244, 255, 0.92));
+            box-shadow: var(--shadow);
+            margin-bottom: 32px;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .top-bar::before {
+            content: '';
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            right: -72px;
+            top: -118px;
+            border-radius: 999px;
+            background: rgba(47, 103, 199, 0.12);
+            z-index: -1;
+        }
+
+        .top-bar::after {
+            content: '';
+            position: absolute;
+            left: 14px;
+            right: 14px;
+            bottom: 0;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(47, 103, 199, 0.28), rgba(45, 143, 123, 0.22), rgba(212, 85, 114, 0.24));
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 8px 13px;
+            border-radius: 999px;
+            border: 1px solid rgba(47, 103, 199, 0.24);
+            background: rgba(47, 103, 199, 0.08);
+            transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
+            white-space: nowrap;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+            background: rgba(47, 103, 199, 0.14);
+            border-color: rgba(47, 103, 199, 0.36);
+            transform: translateY(-1px);
+        }
+
+        .page-title {
+            margin: 0;
+            font-size: clamp(1.2rem, 2.5vw, 1.38rem);
+            font-weight: 800;
+            letter-spacing: -0.015em;
+            color: var(--text-primary);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            text-align: center;
+            padding: 36px 0 48px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 20px;
+            background: var(--accent-1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 8px 24px rgba(245, 160, 184, 0.25);
+        }
+
+        .hero h1 {
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent-1);
+            -webkit-text-fill-color: var(--accent-1);
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── Feature Grid ── */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-strip {
+            height: 6px;
+            width: 100%;
+            transition: height 0.3s ease;
+        }
+
+        .feature-card:hover .card-strip {
+            height: 8px;
+        }
+
+        #card-dict .card-strip {
+            background: var(--accent-dict);
+        }
+
+        #card-grammar .card-strip {
+            background: var(--accent-grammar);
+        }
+
+        #card-read .card-strip {
+            background: var(--accent-read);
+        }
+
+        .card-inner {
+            padding: 28px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .card-icon {
+            transform: scale(1.08);
+        }
+
+        #card-dict .card-icon {
+            background: rgba(255, 181, 167, 0.2);
+        }
+
+        #card-grammar .card-icon {
+            background: rgba(197, 180, 227, 0.2);
+        }
+
+        #card-read .card-icon {
+            background: rgba(168, 216, 234, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.12rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .card-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .card-arrow {
+            margin-top: 18px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            align-self: flex-end;
+            transition: var(--transition);
+        }
+
+        #card-dict .card-arrow {
+            color: #E0928A;
+        }
+
+        #card-grammar .card-arrow {
+            color: #A897C7;
+        }
+
+        #card-read .card-arrow {
+            color: #7AACCF;
+        }
+
+        .feature-card:hover .card-arrow {
+            transform: translateX(5px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<style>
+/* 2026 Redesign Override: English Module */
+:root {
+    --bg: #ecf3ff;
+    --bg-card: rgba(255, 255, 255, 0.96);
+    --border: #bfd0ef;
+    --border-hover: #84a3d8;
+    --text-primary: #172645;
+    --text-secondary: #405b83;
+    --text-muted: #6b84a8;
+    --accent-1: #2f67c7;
+    --accent-dict: #2f67c7;
+    --accent-grammar: #2d8f7b;
+    --accent-read: #587ece;
+    --shadow: 0 12px 30px rgba(27, 47, 85, 0.1);
+    --shadow-hover: 0 18px 42px rgba(27, 47, 85, 0.14);
+    --font-main: 'Manrope', 'Segoe UI', sans-serif;
+}
+
+body {
+    background:
+        radial-gradient(820px 460px at -12% -20%, rgba(67, 103, 184, 0.16), transparent 62%),
+        linear-gradient(165deg, #f8faff 0%, #edf3ff 58%, #e6efff 100%);
+}
+
+.page-title,
+.hero h1,
+.card-title {
+    font-family: 'Bricolage Grotesque', 'Manrope', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.top-bar,
+.feature-card,
+.hero-icon {
+    border-color: #bfd0ef;
+    box-shadow: var(--shadow);
+}
+
+.hero-icon {
+    background: linear-gradient(135deg, #2f67c7, #3f84de);
+}
+
+.feature-card:hover {
+    border-color: #87a7dd;
+}
+
+.card-arrow {
+    color: #2b59a3;
+    letter-spacing: 0.03em;
+}
+</style>
+</head>
+
+<body>
+    <div class="app">
+        <header class="top-bar">
+            <a href="../index.html" class="back-link">← Brain Gym</a>
+            <h1 class="page-title">English Module</h1>
+        </header>
+
+        <section class="hero">
+            <div class="hero-icon">
+                <img src="../icon/books-svgrepo-com.svg" alt="English" width="36" height="36">
+            </div>
+            <h1>English <span class="highlight">Comprehension</span> & Vocabulary</h1>
+            <p>Build your English literacy every day — look up words, master grammar, and read engaging articles.</p>
+        </section>
+
+        <div class="feature-grid">
+            <!-- Dictionary -->
+            <a href="./dictionary/index.html" class="feature-card" id="card-dict">
+                <div class="card-strip"></div>
+                <div class="card-inner">
+                    <div class="card-icon">
+                        <img src="../icon/dictionary-book-with-letters-a-to-z-svgrepo-com.svg" alt="Dictionary"
+                            width="28" height="28">
+                    </div>
+                    <h3 class="card-title">English Dictionary</h3>
+                    <p class="card-desc">
+                        Full English dictionary with pronunciations, definitions, examples, synonyms & antonyms —
+                        powered by the Free Dictionary API.
+                    </p>
+                    <div class="card-arrow">Look up →</div>
+                </div>
+            </a>
+
+            <!-- Grammar -->
+            <a href="./grammar/index.html" class="feature-card" id="card-grammar">
+                <div class="card-strip"></div>
+                <div class="card-inner">
+                    <div class="card-icon">
+                        <img src="../icon/spell-check-svgrepo-com.svg" alt="Grammar" width="28" height="28">
+                    </div>
+                    <h3 class="card-title">Grammar Flashcards</h3>
+                    <p class="card-desc">
+                        Bite-sized grammar lessons from A1 (Basic) to C1 (Advanced), summarized as interactive
+                        flashcards.
+                    </p>
+                    <div class="card-arrow">Study →</div>
+                </div>
+            </a>
+
+            <!-- Daily Read -->
+            <a href="./daily-read/index.html" class="feature-card" id="card-read">
+                <div class="card-strip"></div>
+                <div class="card-inner">
+                    <div class="card-icon">
+                        <img src="../icon/newspaper-3-svgrepo-com.svg" alt="Daily Read" width="28" height="28">
+                    </div>
+                    <h3 class="card-title">Daily Read</h3>
+                    <p class="card-desc">
+                        Short articles updated daily with rotating topics. Click unknown words for instant definitions,
+                        then test your comprehension.
+                    </p>
+                    <div class="card-arrow">Read →</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <script src="../guard.js?v=20260311"></script>
+</body>
+
+</html>

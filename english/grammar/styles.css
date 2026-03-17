@@ -1,0 +1,607 @@
+/* ============================================================
+   Grammar Flashcards — Pastel Lavender/Rose Styles
+   Fun, warm, colorful — no dark, no gradients
+   ============================================================ */
+
+:root {
+    --bg: #FFF0F3;
+    --bg-card: #ffffff;
+    --border: #F5D0D8;
+    --text-primary: #3B2E2A;
+    --text-secondary: #6B5B54;
+    --text-muted: #A39590;
+    --accent-1: #F5A0B8;
+    --accent-2: #E8D5F5;
+    --accent-rose: #FFB5A7;
+    --accent-amber: #FFD6A0;
+    --accent-green: #7ECBA1;
+    --accent-purple: #C5B4E3;
+    --accent-sky: #A8D8EA;
+    --radius: 18px;
+    --radius-sm: 12px;
+    --radius-xs: 8px;
+    --shadow: 0 2px 12px rgba(255, 181, 167, 0.1);
+    --shadow-hover: 0 8px 32px rgba(245, 160, 184, 0.12);
+    --font-main: 'Manrope', 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.app {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+}
+
+/* ── Header ── */
+.top-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) + 2px);
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.95), rgba(236, 244, 255, 0.92));
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.top-bar::before {
+    content: '';
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    right: -72px;
+    top: -118px;
+    border-radius: 999px;
+    background: rgba(47, 103, 199, 0.12);
+    z-index: -1;
+}
+
+.top-bar::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 0;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(47, 103, 199, 0.28), rgba(45, 143, 123, 0.22), rgba(212, 85, 114, 0.24));
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 13px;
+    border-radius: 999px;
+    border: 1px solid rgba(47, 103, 199, 0.24);
+    background: rgba(47, 103, 199, 0.08);
+    transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
+    white-space: nowrap;
+}
+
+.back-link:hover {
+    color: var(--text-primary);
+    background: rgba(47, 103, 199, 0.14);
+    border-color: rgba(47, 103, 199, 0.36);
+    transform: translateY(-1px);
+}
+
+.page-title {
+    margin: 0;
+    font-size: clamp(1.2rem, 2.5vw, 1.38rem);
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
+}
+
+/* ── Level View ── */
+.level-hero {
+    text-align: center;
+    padding: 24px 0 36px;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.hero-emoji {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.level-hero h2 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.level-hero p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.level-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 14px;
+    animation: fadeInUp 0.5s ease-out 0.1s both;
+}
+
+.level-card {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.level-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.level-badge {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: 900;
+    font-family: var(--font-mono);
+    padding: 6px 16px;
+    border-radius: var(--radius-xs);
+    margin-bottom: 10px;
+}
+
+.level-card[data-level="A1"] .level-badge {
+    background: rgba(126, 203, 161, 0.15);
+    color: var(--accent-green);
+}
+
+.level-card[data-level="A1"]:hover {
+    border-color: var(--accent-green);
+}
+
+.level-card[data-level="A2"] .level-badge {
+    background: rgba(168, 216, 234, 0.15);
+    color: var(--accent-sky);
+}
+
+.level-card[data-level="A2"]:hover {
+    border-color: var(--accent-sky);
+}
+
+.level-card[data-level="B1"] .level-badge {
+    background: rgba(255, 214, 160, 0.2);
+    color: #D4A017;
+}
+
+.level-card[data-level="B1"]:hover {
+    border-color: #FFD6A0;
+}
+
+.level-card[data-level="B2"] .level-badge {
+    background: rgba(255, 181, 167, 0.15);
+    color: #E0928A;
+}
+
+.level-card[data-level="B2"]:hover {
+    border-color: var(--accent-rose);
+}
+
+.level-card[data-level="C1"] .level-badge {
+    background: rgba(197, 180, 227, 0.15);
+    color: var(--accent-purple);
+}
+
+.level-card[data-level="C1"]:hover {
+    border-color: var(--accent-purple);
+}
+
+.level-name {
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.level-count {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ── Flashcard View ── */
+.fc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    color: var(--text-secondary);
+    font-family: var(--font-main);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: var(--radius-xs);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 1px 4px rgba(255, 181, 167, 0.06);
+}
+
+.back-icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+    flex-shrink: 0;
+    opacity: 0.72;
+    transition: var(--transition);
+}
+
+.back-btn:hover {
+    color: var(--accent-1);
+    border-color: var(--accent-1);
+}
+
+.back-btn:hover .back-icon {
+    opacity: 1;
+}
+
+.fc-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.fc-level-badge {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 4px 12px;
+    border-radius: var(--radius-xs);
+    background: rgba(197, 180, 227, 0.15);
+    color: var(--accent-purple);
+}
+
+.fc-counter {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* Progress */
+.fc-progress {
+    width: 100%;
+    height: 5px;
+    background: var(--border);
+    border-radius: 4px;
+    margin-bottom: 28px;
+    overflow: hidden;
+}
+
+.fc-progress-fill {
+    height: 100%;
+    background: var(--accent-purple);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+/* Flashcard stage */
+.fc-stage {
+    perspective: 900px;
+    margin-bottom: 28px;
+    animation: fadeInUp 0.4s ease-out 0.1s both;
+}
+
+.flashcard {
+    position: relative;
+    width: 100%;
+    min-height: 340px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+.fc-front,
+.fc-back {
+    position: absolute;
+    inset: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.fc-back {
+    transform: rotateY(180deg);
+    text-align: left;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 16px;
+    overflow-y: auto;
+}
+
+.fc-topic {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    color: var(--accent-purple);
+}
+
+.fc-instruction {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.fc-explanation {
+    font-size: 0.98rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+.fc-example {
+    background: rgba(168, 216, 234, 0.1);
+    border-left: 4px solid var(--accent-sky);
+    padding: 14px 18px;
+    border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.fc-tip {
+    font-size: 0.85rem;
+    color: #B8960A;
+    padding: 10px 14px;
+    background: rgba(255, 243, 176, 0.2);
+    border-radius: var(--radius-xs);
+    border: 1px solid rgba(255, 243, 176, 0.4);
+    font-weight: 500;
+}
+
+/* Controls */
+.fc-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    animation: fadeInUp 0.4s ease-out 0.2s both;
+}
+
+.fc-btn {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    color: var(--text-secondary);
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 4px rgba(255, 181, 167, 0.06);
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    flex-shrink: 0;
+    opacity: 0.74;
+    transition: var(--transition);
+}
+
+.fc-btn:hover {
+    color: var(--accent-1);
+    border-color: var(--accent-1);
+}
+
+.fc-btn:hover .nav-icon {
+    opacity: 1;
+}
+
+.fc-flip-btn {
+    background: var(--accent-purple);
+    border: none;
+    color: #fff;
+    min-width: 100px;
+    box-shadow: 0 4px 16px rgba(197, 180, 227, 0.3);
+}
+
+.fc-flip-btn:hover {
+    opacity: 0.92;
+    color: #fff;
+    transform: scale(1.03);
+}
+
+.fc-shuffle-btn {
+    font-size: 1.1rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .app {
+        padding: 0 16px 60px;
+    }
+
+    .flashcard {
+        min-height: 300px;
+    }
+
+    .fc-front,
+    .fc-back {
+        padding: 28px 20px;
+    }
+
+    .fc-topic {
+        font-size: 1.3rem;
+    }
+
+    .level-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ── Inline SVG Icons ── */
+.inline-icon {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 4px;
+    position: relative;
+    top: -1px;
+}
+/* 2026 Redesign: Grammar Studio */
+:root {
+    --bg: #f1f5ff;
+    --bg-card: rgba(255, 255, 255, 0.97);
+    --border: #bfd0ef;
+    --text-primary: #172645;
+    --text-secondary: #405b83;
+    --text-muted: #6b84a8;
+    --accent-1: #2f67c7;
+    --accent-purple: #2f67c7;
+    --accent-green: #2f9183;
+    --accent-sky: #4d89d8;
+    --radius: 20px;
+    --radius-sm: 13px;
+    --radius-xs: 9px;
+    --shadow: 0 12px 32px rgba(28, 47, 84, 0.1);
+    --shadow-hover: 0 18px 42px rgba(28, 47, 84, 0.14);
+    --font-main: 'Manrope', 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+}
+
+body {
+    background:
+        radial-gradient(760px 460px at -8% -22%, rgba(67, 103, 184, 0.16), transparent 60%),
+        linear-gradient(160deg, #f8faff 0%, #eff4ff 58%, #e9f1ff 100%);
+}
+
+.page-title,
+.level-hero h2,
+.fc-topic,
+.fc-level-badge,
+.level-badge,
+.fc-flip-btn,
+.fc-shuffle-btn {
+    font-family: 'Bricolage Grotesque', 'Manrope', sans-serif;
+}
+
+.hero-emoji,
+.level-card,
+.flashcard,
+.fc-btn,
+.back-btn,
+.fc-progress,
+.fc-header {
+    border-color: #bfd0ef;
+    box-shadow: var(--shadow);
+}
+
+.hero-emoji {
+    width: 88px;
+    height: 88px;
+    border-radius: 22px;
+    margin: 0 auto 16px;
+    background: #e1ecff;
+    border: 1px solid #b7caed;
+    display: grid;
+    place-items: center;
+}
+
+.fc-shuffle-btn {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.level-card:hover,
+.flashcard:hover {
+    transform: translateY(-4px);
+    border-color: #87a7dd;
+}

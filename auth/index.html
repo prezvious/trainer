@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign in to Mental Trainer and sync your progress securely with Supabase.">
+    <title>Mental Trainer | Sign In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../icon/brain-14-svgrepo-com.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="auth-layout">
+        <section class="brand-stage" aria-label="Mental Trainer visual intro">
+            <div class="halo halo-a" aria-hidden="true"></div>
+            <div class="halo halo-b" aria-hidden="true"></div>
+            <div class="grid-noise" aria-hidden="true"></div>
+
+            <p class="brand-label">Mental Trainer</p>
+            <h1 class="brand-title">Train daily. Resume anywhere. Never lose progress.</h1>
+            <p class="brand-subtitle">
+                Your streaks, sessions, favorites, and trainer history are now tied to your account with secure
+                user-scoped storage.
+            </p>
+
+            <div class="brand-stats" aria-hidden="true">
+                <div class="stat-chip">
+                    <span class="chip-key">Sync</span>
+                    <span class="chip-value">Realtime</span>
+                </div>
+                <div class="stat-chip">
+                    <span class="chip-key">Scope</span>
+                    <span class="chip-value">Per user</span>
+                </div>
+                <div class="stat-chip">
+                    <span class="chip-key">Recovery</span>
+                    <span class="chip-value">Autosave</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="auth-stage" aria-label="Authentication form">
+            <div class="auth-card">
+                <p class="eyebrow">Account Access</p>
+                <h2 class="card-title" id="card-title">Welcome back</h2>
+                <p class="card-subtitle" id="card-subtitle">Sign in to continue your synced training.</p>
+
+                <div class="mode-switch" role="tablist" aria-label="Authentication mode">
+                    <button type="button" class="mode-btn active" id="mode-signin" data-mode="signin"
+                        role="tab">Sign In</button>
+                    <button type="button" class="mode-btn" id="mode-signup" data-mode="signup"
+                        role="tab">Create Account</button>
+                </div>
+
+                <form id="auth-form" novalidate>
+                    <label class="field">
+                        <span class="field-label">Email</span>
+                        <input id="email" name="email" type="email" autocomplete="email" required
+                            placeholder="you@example.com">
+                    </label>
+
+                    <label class="field">
+                        <span class="field-label">Password</span>
+                        <input id="password" name="password" type="password" autocomplete="current-password" required
+                            minlength="8" placeholder="At least 8 characters">
+                    </label>
+
+                    <label class="field hidden" id="confirm-field">
+                        <span class="field-label">Confirm password</span>
+                        <input id="confirm-password" name="confirmPassword" type="password"
+                            autocomplete="new-password" minlength="8" placeholder="Repeat password">
+                    </label>
+
+                    <button type="submit" class="submit-btn" id="submit-btn">Sign In</button>
+                </form>
+
+                <p class="status" id="status-message" role="status" aria-live="polite"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="../guard.js?v=20260311"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

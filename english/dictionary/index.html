@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="English Dictionary — Full definitions, pronunciations, examples, synonyms & antonyms.">
+    <title>English Dictionary — Brain Gym</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="../../icon/brain-14-svgrepo-com.svg">
+</head>
+
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="top-bar">
+            <a href="../index.html" class="back-link">← English</a>
+            <h1 class="page-title">English Dictionary</h1>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-wrapper">
+                <img class="search-icon" src="../../icon/dictionary-book-with-letters-a-to-z-svgrepo-com.svg" alt=""
+                    width="22" height="22" aria-hidden="true">
+                <input type="text" id="search-input" placeholder="Type a word to look up…" autocomplete="off" autofocus>
+                <button class="clear-btn hidden" id="clear-btn" aria-label="Clear search">×</button>
+            </div>
+            <div class="search-hint" id="search-hint">Press Enter or wait to search</div>
+        </section>
+
+        <!-- Loading -->
+        <div class="loader hidden" id="loader">
+            <div class="loader-bar"></div>
+            <span>Looking up word…</span>
+        </div>
+
+        <!-- Error -->
+        <div class="error-msg hidden" id="error-msg">
+            <span class="error-icon" aria-hidden="true">!</span>
+            <p id="error-text">Word not found. Try a different word.</p>
+        </div>
+
+        <!-- Results -->
+        <div class="results" id="results"></div>
+
+        <!-- Search History -->
+        <section class="history-section" id="history-section">
+            <h3 class="history-title">Recent Searches</h3>
+            <div class="history-list" id="history-list"></div>
+        </section>
+    </div>
+
+    <script src="../../guard.js?v=20260311"></script>
+    <script src="../../gamification.js"></script>
+    <script src="../../review-queue.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

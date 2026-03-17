@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kata Baku & Tidak Baku â€” Latihan flashcard swipe untuk mengenali kata baku.">
+    <title>Kata Baku â€” Brain Gym</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="../../icon/brain-14-svgrepo-com.svg">
+</head>
+
+<body>
+    <div class="app">
+        <header class="top-bar">
+            <a href="../index.html" class="back-link">â† Bahasa Indonesia</a>
+            <h1 class="page-title">Kata Baku</h1>
+        </header>
+
+        <!-- Score Bar -->
+        <div class="score-bar" id="score-bar">
+            <div class="score-item">
+                <span class="score-label">Skor</span>
+                <span class="score-value" id="score">0</span>
+            </div>
+            <div class="score-item">
+                <span class="score-label">Streak</span>
+                <span class="score-value streak-val" id="streak">0</span>
+            </div>
+            <div class="score-item">
+                <span class="score-label">Kartu</span>
+                <span class="score-value" id="progress">0 / 0</span>
+            </div>
+        </div>
+
+        <!-- Flashcard Stage -->
+        <div class="fc-stage" id="fc-stage">
+            <div class="flashcard" id="flashcard">
+                <div class="fc-word" id="fc-word">â€”</div>
+                <div class="fc-hint">Baku atau Tidak Baku?</div>
+            </div>
+        </div>
+
+        <!-- Feedback -->
+        <div class="feedback hidden" id="feedback">
+            <div class="fb-icon" id="fb-icon"></div>
+            <div class="fb-text" id="fb-text"></div>
+            <div class="fb-detail" id="fb-detail"></div>
+            <button class="fb-next" id="fb-next">Lanjut â†’</button>
+        </div>
+
+        <!-- Swipe Buttons -->
+        <div class="swipe-buttons" id="swipe-buttons">
+            <button class="swipe-btn btn-tidak" id="btn-tidak" aria-label="Tidak Baku">
+                <span class="btn-icon">âœ—</span>
+                <span>Tidak Baku</span>
+            </button>
+            <button class="swipe-btn btn-baku" id="btn-baku" aria-label="Baku">
+                <span class="btn-icon">âœ“</span>
+                <span>Baku</span>
+            </button>
+        </div>
+
+        <!-- Keyboard Hint -->
+        <div class="keyboard-hint">
+            â† Tidak Baku &nbsp;|&nbsp; Baku â†’
+        </div>
+
+        <!-- End Screen -->
+        <div class="end-screen hidden" id="end-screen">
+            <div class="end-icon"><img src="../../icon/star-svgrepo-com.svg" alt="" width="56" height="56"></div>
+            <h2>Selesai!</h2>
+            <p class="end-score" id="end-score"></p>
+            <button class="restart-btn" id="restart-btn">Ulangi Latihan</button>
+        </div>
+    </div>
+
+    <script src="kata_baku_data.js"></script>
+    <script src="../../guard.js?v=20260311"></script>
+    <script src="../../gamification.js"></script>
+    <script src="../../module-state.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

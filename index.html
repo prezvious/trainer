@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Brain Gym - Daily practice for mental math, formulas, geometry, English, and Bahasa Indonesia.">
+    <title>Brain Gym - Daily Mental Training</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="./icon/brain-14-svgrepo-com.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="bg-ornaments" aria-hidden="true">
+        <div class="blob blob-a"></div>
+        <div class="blob blob-b"></div>
+        <div class="blob blob-c"></div>
+    </div>
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <div class="app-shell">
+        <header class="header">
+            <div class="header-inner">
+                <a class="logo" href="./index.html" aria-label="Brain Gym home">
+                    <span class="logo-icon">
+                        <img src="./icon/brain-14-svgrepo-com.svg" alt="" width="34" height="34">
+                    </span>
+                    <span class="logo-text">Brain Gym</span>
+                </a>
+                <nav class="header-nav" aria-label="Primary">
+                    <a href="#stats" class="nav-link">Stats</a>
+                    <a href="#modules" class="nav-link">Modules</a>
+                </nav>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="hero-layout">
+                    <div class="hero-copy">
+                        <p class="hero-badge">
+                            <img src="./icon/brain.svg" alt="" width="18" height="18" class="hero-badge-icon">
+                            Daily mental training
+                        </p>
+                        <h1 class="hero-title" id="hero-title">
+                            A clean, focused place to train your brain every day.
+                        </h1>
+                        <p class="hero-sub">
+                            Practice math speed, revise key formulas, explore geometry, and sharpen language skills
+                            with a structured routine.
+                        </p>
+                        <div class="hero-actions">
+                            <a class="btn btn-primary" href="#modules">Start Training</a>
+                            <a class="btn btn-secondary" href="#stats">View Progress</a>
+                        </div>
+                    </div>
+                    <aside class="hero-loop" aria-label="Looping training animation" oncontextmenu="return false">
+                        <div class="orbit-stage" role="img"
+                            aria-label="Module icons orbiting around a central focus core in a smooth infinite loop">
+                            <div class="orbit-ring ring-outer"></div>
+                            <div class="orbit-ring ring-mid"></div>
+                            <div class="orbit-ring ring-inner"></div>
+
+                            <div class="orbit-track track-outer">
+                                <span class="orbit-node node-math"><img src="./icon/math-finance-svgrepo-com.svg"
+                                        alt="" width="22" height="22"></span>
+                            </div>
+                            <div class="orbit-track track-mid">
+                                <span class="orbit-node node-formula"><img src="./icon/formula-svgrepo-com.svg"
+                                        alt="" width="22" height="22"></span>
+                            </div>
+                            <div class="orbit-track track-inner">
+                                <span class="orbit-node node-english"><img src="./icon/spell-check-svgrepo-com.svg"
+                                        alt="" width="22" height="22"></span>
+                            </div>
+                            <div class="orbit-track track-mid reverse">
+                                <span class="orbit-node node-geometry"><img src="./icon/geometry-cube-svgrepo-com.svg"
+                                        alt="" width="22" height="22"></span>
+                            </div>
+
+                            <div class="core-pulse">
+                                <img class="core-icon" src="./icon/brain.svg" alt="" width="44"
+                                    height="44">
+                                <span class="core-label">Focus Loop</span>
+                            </div>
+
+                            <div class="signal signal-a"></div>
+                            <div class="signal signal-b"></div>
+                        </div>
+                        <p class="hero-loop-caption">Small daily cycles, compounding progress.</p>
+                    </aside>
+                </div>
+            </section>
+
+            <section class="dashboard" id="stats" aria-labelledby="stats-title">
+                <div class="section-head">
+                    <h2 class="section-title" id="stats-title">Progress snapshot</h2>
+                    <p class="section-subtitle">Your latest activity across all training modules.</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <article class="stat-card streak-card">
+                        <div class="stat-icon">
+                            <img src="./icon/fire-svgrepo-com.svg" alt="" width="28" height="28">
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="streak-count">0</span>
+                            <span class="stat-label">Day Streak</span>
+                        </div>
+                    </article>
+
+                    <article class="stat-card score-card">
+                        <div class="stat-icon">
+                            <img src="./icon/star-svgrepo-com.svg" alt="" width="28" height="28">
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="total-score">0</span>
+                            <span class="stat-label">Total Score</span>
+                        </div>
+                    </article>
+
+                    <article class="stat-card today-card">
+                        <div class="stat-icon">
+                            <img src="./icon/math-finance-svgrepo-com.svg" alt="" width="28" height="28">
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="today-count">0</span>
+                            <span class="stat-label">Today's Problems</span>
+                        </div>
+                    </article>
+                </div>
+
+                <section class="chart-section" aria-label="Last 7 days of activity">
+                    <h3 class="chart-title">7-Day Activity</h3>
+                    <div class="chart-wrapper">
+                        <div class="bar-chart" id="weekly-chart"></div>
+                    </div>
+                </section>
+            </section>
+
+            <section class="review-queue" id="review-queue" aria-labelledby="review-queue-title">
+                <div class="section-head">
+                    <h2 class="section-title" id="review-queue-title">Spaced Review Queue</h2>
+                    <p class="section-subtitle" id="review-queue-subtitle">Due items from formulas, vocabulary, and grammar.</p>
+                </div>
+                <div class="review-list" id="review-list" aria-live="polite">
+                    <!-- Review items injected by JS -->
+                </div>
+            </section>
+
+            <section class="modules" id="modules" aria-labelledby="modules-title">
+                <div class="section-head">
+                    <h2 class="section-title" id="modules-title">Training modules</h2>
+                    <p class="section-subtitle">Choose a module and continue where you left off.</p>
+                </div>
+
+                <div class="module-grid">
+                    <a href="./math-trainer/index.html" class="module-card" id="card-math">
+                        <div class="card-glow"></div>
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <img src="./icon/math-finance-svgrepo-com.svg" alt="" width="30" height="30">
+                            </div>
+                            <h3 class="card-title">Math Trainer</h3>
+                            <p class="card-desc">Timed drills for arithmetic speed, chain math, and PEMDAS accuracy.</p>
+                            <p class="card-meta">Focus: speed + consistency</p>
+                            <div class="card-arrow">Start <span aria-hidden="true">&rarr;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="./formula-notes/index.html" class="module-card" id="card-formulas">
+                        <div class="card-glow"></div>
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <img src="./icon/formula-svgrepo-com.svg" alt="" width="30" height="30">
+                            </div>
+                            <h3 class="card-title">Formula Notes</h3>
+                            <p class="card-desc">Searchable references with LaTeX formulas and quick revision access.</p>
+                            <p class="card-meta">Focus: concept recall</p>
+                            <div class="card-arrow">Open <span aria-hidden="true">&rarr;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="./geometry/index.html" class="module-card" id="card-geometry">
+                        <div class="card-glow"></div>
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <img src="./icon/geometry-cube-svgrepo-com.svg" alt="" width="30" height="30">
+                            </div>
+                            <h3 class="card-title">Geometry Visualizer</h3>
+                            <p class="card-desc">Interactive 2D and 3D exploration with formulas and shape details.</p>
+                            <p class="card-meta">Focus: spatial thinking</p>
+                            <div class="card-arrow">Explore <span aria-hidden="true">&rarr;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="./english/index.html" class="module-card" id="card-english">
+                        <div class="card-glow"></div>
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <img src="./icon/english-to-chinese-svgrepo-com.svg" alt="" width="30" height="30">
+                            </div>
+                            <h3 class="card-title">English</h3>
+                            <p class="card-desc">Dictionary, grammar review, and short reading drills with quizzes.</p>
+                            <p class="card-meta">Focus: literacy</p>
+                            <div class="card-arrow">Learn <span aria-hidden="true">&rarr;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="./indonesian/index.html" class="module-card" id="card-indonesian">
+                        <div class="card-glow"></div>
+                        <div class="card-body">
+                            <div class="card-icon">
+                                <img src="./icon/dictionary-book-with-letters-a-to-z-svgrepo-com.svg" alt=""
+                                    width="30" height="30">
+                            </div>
+                            <h3 class="card-title">Bahasa Indonesia</h3>
+                            <p class="card-desc">Kata baku flashcards and analogy drills for TPA preparation.</p>
+                            <p class="card-meta">Focus: vocabulary logic</p>
+                            <div class="card-arrow">Latihan <span aria-hidden="true">&rarr;</span></div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Brain Gym - Built for consistent daily training.</p>
+        </footer>
+    </div>
+
+    <script src="guard.js?v=20260311"></script>
+    <script src="gamification.js"></script>
+    <script src="review-queue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

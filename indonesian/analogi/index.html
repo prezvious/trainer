@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analogi â€” Latihan soal padanan hubungan kata untuk persiapan TPA.">
+    <title>Analogi â€” Brain Gym</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="../../icon/brain-14-svgrepo-com.svg">
+</head>
+
+<body>
+    <div class="app">
+        <header class="top-bar">
+            <a href="../index.html" class="back-link">â† Bahasa Indonesia</a>
+            <h1 class="page-title">Analogi</h1>
+        </header>
+
+        <!-- Score Bar -->
+        <div class="score-bar" id="score-bar">
+            <div class="score-item">
+                <span class="score-label">Benar</span>
+                <span class="score-value correct-val" id="correct-count">0</span>
+            </div>
+            <div class="score-item">
+                <span class="score-label">Soal</span>
+                <span class="score-value" id="progress">1 / 20</span>
+            </div>
+            <div class="score-item">
+                <span class="score-label">Akurasi</span>
+                <span class="score-value" id="accuracy">â€”</span>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="question-card" id="question-card">
+            <div class="q-number" id="q-number">Soal 1</div>
+            <div class="q-text" id="q-text">â€”</div>
+
+            <div class="options" id="options">
+                <!-- filled by JS -->
+            </div>
+        </div>
+
+        <!-- Pembahasan -->
+        <div class="pembahasan hidden" id="pembahasan">
+            <div class="pemb-header" id="pemb-header"></div>
+            <p class="pemb-text" id="pemb-text"></p>
+            <button class="next-btn" id="next-btn">Soal Berikutnya â†’</button>
+        </div>
+
+        <!-- End Screen -->
+        <div class="end-screen hidden" id="end-screen">
+            <div class="end-icon"><img src="../../icon/star-svgrepo-com.svg" alt="" width="56" height="56"></div>
+            <h2 id="end-title">Latihan Selesai!</h2>
+            <p class="end-score" id="end-score"></p>
+            <div class="end-breakdown" id="end-breakdown"></div>
+            <button class="restart-btn" id="restart-btn">Ulangi Latihan</button>
+        </div>
+    </div>
+
+    <script src="analogi_data.js"></script>
+    <script src="../../guard.js?v=20260311"></script>
+    <script src="../../gamification.js"></script>
+    <script src="../../module-state.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
